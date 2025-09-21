@@ -1,0 +1,10 @@
+select  UB.TITLE
+        ,UG.BOARD_ID
+        ,UG.REPLY_ID
+        ,UG.WRITER_ID
+        ,UG.CONTENTS
+        ,DATE_FORMAT(UG.CREATED_DATE,'%Y-%m-%d') as CREATED_DATE
+from USED_GOODS_REPLY as UG
+    inner join USED_GOODS_BOARD as UB on UG.BOARD_ID  = UB.BOARD_ID
+where UB.CREATED_DATE BETWEEN '2022-10-01' AND '2022-10-31'
+order by UG.CREATED_DATE ,UB.TITLE asc
